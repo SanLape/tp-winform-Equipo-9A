@@ -1,4 +1,6 @@
-﻿using System;
+﻿using dominio;
+using negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,29 @@ namespace ejemplo1
         public Form1()
         {
             InitializeComponent();
+        }
+
+      
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio lista = new ArticuloNegocio();
+
+            dataGridView1.DataSource = lista.listar();
+
+
+
+        }
+
+
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+
+            //dataGridView1.DataSource = lista.listar();
+
+
         }
     }
 }
