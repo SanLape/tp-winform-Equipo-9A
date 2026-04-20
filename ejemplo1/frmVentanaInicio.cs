@@ -41,5 +41,11 @@ namespace ejemplo1
 
 
         }
+
+        private void btnCategoria_Click(object sender, EventArgs e)
+        {
+            frmCategoria categoria = new frmCategoria();
+            categoria.ShowDialog();
+        }
     }
 }

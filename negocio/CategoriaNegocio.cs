@@ -8,5 +8,6 @@ namespace negocio
 {
     internal class CategoriaNegocio
     {
+        
     }
 }

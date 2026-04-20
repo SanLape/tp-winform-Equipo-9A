@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace datos
 {
-   public class AccesoDatos
+    public class AccesoDatos
 
 
 
@@ -36,8 +36,17 @@ namespace datos
         public void lecturaDatos()
         {
             comando.Connection = conexion;
-            conexion.Open();
-            lector = comando.ExecuteReader();
+
+            try
+            {
+                conexion.Open();
+                lector = comando.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public void cerrarConexion()
