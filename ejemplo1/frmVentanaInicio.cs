@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace ejemplo1
 {
-    public partial class Form1 : Form
+    public partial class frmVentanaInicio : Form
     {
-        public Form1()
+        public frmVentanaInicio()
         {
             InitializeComponent();
         }
@@ -35,9 +35,9 @@ namespace ejemplo1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            ArticuloNegocio lista = new ArticuloNegocio();
 
-            //dataGridView1.DataSource = lista.listar();
+            dataGridView1.DataSource = lista.listar();
 
 
         }

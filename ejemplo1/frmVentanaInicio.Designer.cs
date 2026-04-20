@@ -1,6 +1,6 @@
 ﻿namespace ejemplo1
 {
-    partial class Form1
+    partial class frmVentanaInicio
     {
         /// <summary>
         /// Required designer variable.
