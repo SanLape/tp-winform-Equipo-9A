@@ -69,7 +69,7 @@ namespace ejemplo1
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(this.Text))
+            if (!string.IsNullOrEmpty(txtNombre.Text))
             {
                 try
                 {
@@ -85,7 +85,12 @@ namespace ejemplo1
                     }
                     else
                     {
-                        //AGREGAR CATEGORIA 
+                        CategoriaNegocio catNegocio = new CategoriaNegocio();
+                        Categoria aux = new Categoria();
+                        aux.Nombre = txtNombre.Text;
+                        catNegocio.agregar(aux);
+
+                        MessageBox.Show(" CATEGORIA AGREGADA ");
                     }
                     cargar();
                 }
@@ -93,6 +98,10 @@ namespace ejemplo1
                 {
                     throw ex;
                 }
+            }
+            else
+            {
+                MessageBox.Show(" AGREGAR UN NOMBRE ");
             }
         }
     }
