@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmCategoria.cs">
+    <Compile Include="frmCategoriaMarca.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCategoria.Designer.cs">
-      <DependentUpon>frmCategoria.cs</DependentUpon>
+    <Compile Include="frmCategoriaMarca.Designer.cs">
+      <DependentUpon>frmCategoriaMarca.cs</DependentUpon>
     </Compile>
     <Compile Include="frmVentanaInicio.cs">
       <SubType>Form</SubType>
@@ -60,8 +60,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmCategoria.resx">
-      <DependentUpon>frmCategoria.cs</DependentUpon>
+    <EmbeddedResource Include="frmCategoriaMarca.resx">
+      <DependentUpon>frmCategoriaMarca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVentanaInicio.resx">
       <DependentUpon>frmVentanaInicio.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace ejemplo1
 {
-    partial class frmCategoria
+    partial class frmCategoriaMarca
     {
         /// <summary>
         /// Required designer variable.

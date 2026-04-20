@@ -44,8 +44,14 @@ namespace ejemplo1
 
         private void btnCategoria_Click(object sender, EventArgs e)
         {
-            frmCategoria categoria = new frmCategoria();
+            frmCategoriaMarca categoria = new frmCategoriaMarca(false);
             categoria.ShowDialog();
+        }
+
+        private void btnMarca_Click(object sender, EventArgs e)
+        {
+            frmCategoriaMarca marca = new frmCategoriaMarca(true);
+            marca.ShowDialog();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using datos;
+using dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +10,35 @@ namespace negocio
 {
     public class MarcaNegocio
     {
+        List<Marca> lista = new List<Marca>();
+        AccesoDatos datos = new AccesoDatos();
+        public List<Marca> listar()
+        {
+            try
+            {
+                datos.setQuery("select id, descripcion from MARCAS");
+                datos.lecturaDatos();
+
+                while (datos.Lector.Read())
+                {
+                    Marca aux = new Marca();
+                    aux.Id = (int)datos.Lector["id"];
+                    aux.Nombre = (string)datos.Lector["descripcion"];
+
+                    lista.Add(aux);
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }
