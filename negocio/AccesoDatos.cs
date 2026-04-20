@@ -49,6 +49,25 @@ namespace datos
             }
         }
 
+        public void ejecutarAccion()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                comando.ExecuteNonQuery();  //EJECUTA UNA ACCION QUE NO ES UNA QUERY
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public void setarParametro(string nombre, object valor) //nombre de variable SQL q va a tener que completar del objeto el valor
+        {
+            comando.Parameters.AddWithValue(nombre, valor);
+        }
+
         public void cerrarConexion()
         {
             if (lector != null)

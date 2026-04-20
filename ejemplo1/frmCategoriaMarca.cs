@@ -66,5 +66,34 @@ namespace ejemplo1
 
             }
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(this.Text))
+            {
+                try
+                {
+                    if (marca)
+                    {
+                        MarcaNegocio marNegocio =new MarcaNegocio();
+                        Marca aux = new Marca();
+                        aux.Nombre = txtNombre.Text;
+                        marNegocio.agregar(aux);
+
+                        MessageBox.Show(" MARCA AGREGADA ");
+                        
+                    }
+                    else
+                    {
+                        //AGREGAR CATEGORIA 
+                    }
+                    cargar();
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
     }
 }
