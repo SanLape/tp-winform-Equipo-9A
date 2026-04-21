@@ -39,14 +39,17 @@
             // dgwCategoriaMarca
             // 
             this.dgwCategoriaMarca.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwCategoriaMarca.Location = new System.Drawing.Point(95, 81);
+            this.dgwCategoriaMarca.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgwCategoriaMarca.Location = new System.Drawing.Point(12, 12);
+            this.dgwCategoriaMarca.MultiSelect = false;
             this.dgwCategoriaMarca.Name = "dgwCategoriaMarca";
+            this.dgwCategoriaMarca.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgwCategoriaMarca.Size = new System.Drawing.Size(366, 240);
             this.dgwCategoriaMarca.TabIndex = 0;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(205, 343);
+            this.txtNombre.Location = new System.Drawing.Point(122, 258);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(256, 20);
             this.txtNombre.TabIndex = 1;
@@ -55,7 +58,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(90, 337);
+            this.lblNombre.Location = new System.Drawing.Point(12, 255);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(109, 25);
             this.lblNombre.TabIndex = 2;
@@ -63,7 +66,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(95, 372);
+            this.btnAgregar.Location = new System.Drawing.Point(12, 284);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(180, 51);
             this.btnAgregar.TabIndex = 3;
@@ -73,7 +76,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(281, 372);
+            this.btnEliminar.Location = new System.Drawing.Point(198, 284);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(180, 51);
             this.btnEliminar.TabIndex = 4;
@@ -85,13 +88,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(392, 344);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.dgwCategoriaMarca);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmCategoriaMarca";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCategoria";
             this.Load += new System.EventHandler(this.frmCategoria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwCategoriaMarca)).EndInit();

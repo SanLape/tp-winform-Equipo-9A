@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvArticulo = new System.Windows.Forms.DataGridView();
             this.btnCategoria = new System.Windows.Forms.Button();
             this.btnMarca = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -46,16 +46,19 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dataGridView1
+            // dgvArticulo
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(114, 151);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(668, 258);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvArticulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvArticulo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvArticulo.Location = new System.Drawing.Point(114, 151);
+            this.dgvArticulo.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvArticulo.MultiSelect = false;
+            this.dgvArticulo.Name = "dgvArticulo";
+            this.dgvArticulo.RowHeadersWidth = 51;
+            this.dgvArticulo.RowTemplate.Height = 24;
+            this.dgvArticulo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvArticulo.Size = new System.Drawing.Size(668, 258);
+            this.dgvArticulo.TabIndex = 1;
             // 
             // btnCategoria
             // 
@@ -84,13 +87,13 @@
             this.ClientSize = new System.Drawing.Size(982, 526);
             this.Controls.Add(this.btnMarca);
             this.Controls.Add(this.btnCategoria);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvArticulo);
             this.Controls.Add(this.button1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmVentanaInicio";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -98,7 +101,7 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvArticulo;
         private System.Windows.Forms.Button btnCategoria;
         private System.Windows.Forms.Button btnMarca;
     }

@@ -14,18 +14,19 @@ namespace ejemplo1
 {
     public partial class frmVentanaInicio : Form
     {
+        private List<Articulo> listaArticulo;
         public frmVentanaInicio()
         {
             InitializeComponent();
         }
 
-      
+
 
         private void button1_Click(object sender, EventArgs e)
         {
             ArticuloNegocio lista = new ArticuloNegocio();
 
-            dataGridView1.DataSource = lista.listar();
+            dgvArticulo.DataSource = lista.listar();
 
 
 
@@ -35,13 +36,29 @@ namespace ejemplo1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio lista = new ArticuloNegocio();
-
-            dataGridView1.DataSource = lista.listar();
-
-
+            cargar();
         }
+        private void cargar()
+        {
+            ArticuloNegocio artNegocio = new ArticuloNegocio();
+            try
+            {
+                listaArticulo = artNegocio.listar();
+                dgvArticulo.DataSource = listaArticulo;
+                ocultarColumnas();
 
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        private void ocultarColumnas()
+        {
+            // metodo para ocultas las columnas 
+            dgvArticulo.Columns["id"].Visible = false;
+        }
         private void btnCategoria_Click(object sender, EventArgs e)
         {
             frmCategoriaMarca categoria = new frmCategoriaMarca(false);
