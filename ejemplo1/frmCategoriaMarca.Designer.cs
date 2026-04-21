@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgwCategoria = new System.Windows.Forms.DataGridView();
+            this.dgwCategoriaMarca = new System.Windows.Forms.DataGridView();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwCategoria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwCategoriaMarca)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgwCategoria
+            // dgwCategoriaMarca
             // 
-            this.dgwCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwCategoria.Location = new System.Drawing.Point(95, 81);
-            this.dgwCategoria.Name = "dgwCategoria";
-            this.dgwCategoria.Size = new System.Drawing.Size(366, 240);
-            this.dgwCategoria.TabIndex = 0;
+            this.dgwCategoriaMarca.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwCategoriaMarca.Location = new System.Drawing.Point(95, 81);
+            this.dgwCategoriaMarca.Name = "dgwCategoriaMarca";
+            this.dgwCategoriaMarca.Size = new System.Drawing.Size(366, 240);
+            this.dgwCategoriaMarca.TabIndex = 0;
             // 
             // txtNombre
             // 
@@ -79,6 +79,7 @@
             this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // frmCategoriaMarca
             // 
@@ -89,11 +90,11 @@
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.dgwCategoria);
+            this.Controls.Add(this.dgwCategoriaMarca);
             this.Name = "frmCategoriaMarca";
             this.Text = "frmCategoria";
             this.Load += new System.EventHandler(this.frmCategoria_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgwCategoria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwCategoriaMarca)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -101,7 +102,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgwCategoria;
+        private System.Windows.Forms.DataGridView dgwCategoriaMarca;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Button btnAgregar;

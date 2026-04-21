@@ -37,7 +37,7 @@ namespace ejemplo1
                 try
                 {
                     marcaLista = macNegocio.listar();
-                    dgwCategoria.DataSource = marcaLista;
+                    dgwCategoriaMarca.DataSource = marcaLista;
 
                     this.Text = " MARCA ";
                 }
@@ -53,7 +53,7 @@ namespace ejemplo1
                 try
                 {
                     catLista = catNegocio.listar();
-                    dgwCategoria.DataSource = catLista;
+                    dgwCategoriaMarca.DataSource = catLista;
 
                     this.Text = " CATEGORIA ";
 
@@ -75,13 +75,13 @@ namespace ejemplo1
                 {
                     if (marca)
                     {
-                        MarcaNegocio marNegocio =new MarcaNegocio();
+                        MarcaNegocio marNegocio = new MarcaNegocio();
                         Marca aux = new Marca();
                         aux.Nombre = txtNombre.Text;
                         marNegocio.agregar(aux);
 
                         MessageBox.Show(" MARCA AGREGADA ");
-                        
+
                     }
                     else
                     {
@@ -102,6 +102,32 @@ namespace ejemplo1
             else
             {
                 MessageBox.Show(" AGREGAR UN NOMBRE ");
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (marca)
+                {
+                    MarcaNegocio marcaNegocio = new MarcaNegocio();
+                    Marca select = (Marca)dgwCategoriaMarca.CurrentRow.DataBoundItem;
+
+                    marcaNegocio.eliminar(select.Id);
+                    
+                    MessageBox.Show("MARCA ELIMINADA");
+
+                }
+                else
+                {
+                }
+                cargar();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
     }
