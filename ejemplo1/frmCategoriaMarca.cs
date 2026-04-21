@@ -116,11 +116,17 @@ namespace ejemplo1
 
                     marcaNegocio.eliminar(select.Id);
                     
-                    MessageBox.Show("MARCA ELIMINADA");
+                    MessageBox.Show(" MARCA ELIMINADA ");
 
                 }
                 else
                 {
+                    CategoriaNegocio catNegocio = new CategoriaNegocio();
+                    Categoria select = (Categoria)dgwCategoriaMarca.CurrentRow.DataBoundItem;
+
+                    catNegocio.eliminar(select.Id);
+
+                    MessageBox.Show(" CATEGORIA ELIMINADA ");
                 }
                 cargar();
             }
