@@ -12,11 +12,15 @@ namespace ejemplo1
         private List<Articulo> listaArticulo;
         private List<Imagen> listaImagen;
 
-
+      
         public frmVentanaInicio()
         {
             InitializeComponent();
         }
+
+
+    
+
 
 
 
@@ -126,22 +130,43 @@ namespace ejemplo1
 
 
 
-            //if (img != null && !string.IsNullOrWhiteSpace(img.Url))
-            //{
-            //    try
-            //    {
-            //        pictureBox1.Load(img.Url);
-            //    }
-            //    catch
-            //    {
-            //        pictureBox1.Image = null; // o imagen por defecto
-            //    }
-            //}
-            //else
-            //{
-            //    pictureBox1.Image = null;
-            //}
+            
 
         }
+
+        private void buttonAgregar_Click(object sender, EventArgs e)
+        {
+            AltaArticulo alta = new AltaArticulo();
+            alta.ShowDialog();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e){
+
+            if (dgvArticulo.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un Artículo para modificar");
+                return;
+            }
+
+            Articulo seleccionado = dgvArticulo.CurrentRow.DataBoundItem as Articulo;
+
+          
+
+            try
+            {
+                AltaArticulo modificar = new AltaArticulo(seleccionado);
+                modificar.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+       
+
+        
+
+       
     }
 }
