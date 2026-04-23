@@ -1,4 +1,6 @@
-﻿using System;
+﻿using dominio;
+using negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,14 +9,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using dominio;
-using negocio;
+
+
 
 namespace ejemplo1
 {
     public partial class AltaArticulo : Form
     {
-
+        private List<Articulo> listaArticulo;
+        private List<Imagen> listaImagen;
+        private ImagenNegocio cargaImagenes = new ImagenNegocio();
         private Articulo articulo = null;
         public AltaArticulo()
         {
@@ -72,13 +76,47 @@ namespace ejemplo1
 
         private void AltaArticulo_Load(object sender, EventArgs e)
         {
+
+            listaImagen = cargaImagenes.listar();
+            
+
             if (articulo!=null)
             {
-                textCodigo.Text = articulo.Codigo;
-                textNombre.Text = articulo.Nombre;
-                textDescripcion.Text = articulo.Descripcion;
-                textPrecio.Text = articulo.Precio.ToString();
+                
 
+              
+
+                try
+                {
+
+                    textCodigo.Text = articulo.Codigo;
+                    textNombre.Text = articulo.Nombre;
+                    textDescripcion.Text = articulo.Descripcion;
+                    textPrecio.Text = articulo.Precio.ToString();
+                  
+
+                    var imagen = listaImagen.FirstOrDefault(x => x.IdArticulo == articulo.Id);
+                    if (imagen != null)
+                        
+
+                   
+
+
+                    if (imagen != null && !string.IsNullOrEmpty(imagen.Url))
+                    {
+                        pictureBoxAlta.Load(imagen.Url);
+                    }
+                    else
+                    {
+                        pictureBoxAlta.Load("https://mrchava.es/wp-content/uploads/2021/09/placeholder.png");
+                    }
+                }
+                catch
+                {
+                    // Si falla la URL (internet, link roto, etc.)
+                    pictureBoxAlta.Load("https://mrchava.es/wp-content/uploads/2021/09/placeholder.png");
+                    
+                }
 
             }
         }

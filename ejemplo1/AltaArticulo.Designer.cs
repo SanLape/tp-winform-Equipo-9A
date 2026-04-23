@@ -132,9 +132,9 @@
             // pictureBoxAlta
             // 
             this.pictureBoxAlta.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBoxAlta.Location = new System.Drawing.Point(658, 36);
+            this.pictureBoxAlta.Location = new System.Drawing.Point(701, 43);
             this.pictureBoxAlta.Name = "pictureBoxAlta";
-            this.pictureBoxAlta.Size = new System.Drawing.Size(311, 305);
+            this.pictureBoxAlta.Size = new System.Drawing.Size(311, 317);
             this.pictureBoxAlta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxAlta.TabIndex = 10;
             this.pictureBoxAlta.TabStop = false;
