@@ -34,6 +34,9 @@ namespace negocio
                     aux.Descripcion = (string)data.Lector["Descripcion"];
                     aux.Precio = (decimal)data.Lector["Precio"];
                     
+                    
+
+
 
 
 
