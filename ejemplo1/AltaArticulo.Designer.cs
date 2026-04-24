@@ -39,6 +39,8 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.pictureBoxAlta = new System.Windows.Forms.PictureBox();
+            this.TxtImagen = new System.Windows.Forms.Label();
+            this.textImagen = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlta)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +76,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(233, 228);
+            this.label4.Location = new System.Drawing.Point(242, 265);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 16);
             this.label4.TabIndex = 3;
@@ -104,7 +106,7 @@
             // 
             // textPrecio
             // 
-            this.textPrecio.Location = new System.Drawing.Point(366, 228);
+            this.textPrecio.Location = new System.Drawing.Point(366, 259);
             this.textPrecio.Name = "textPrecio";
             this.textPrecio.Size = new System.Drawing.Size(149, 22);
             this.textPrecio.TabIndex = 7;
@@ -139,11 +141,30 @@
             this.pictureBoxAlta.TabIndex = 10;
             this.pictureBoxAlta.TabStop = false;
             // 
+            // TxtImagen
+            // 
+            this.TxtImagen.AutoSize = true;
+            this.TxtImagen.Location = new System.Drawing.Point(233, 220);
+            this.TxtImagen.Name = "TxtImagen";
+            this.TxtImagen.Size = new System.Drawing.Size(94, 16);
+            this.TxtImagen.TabIndex = 11;
+            this.TxtImagen.Text = "-URL-IMAGEN";
+            // 
+            // textImagen
+            // 
+            this.textImagen.Location = new System.Drawing.Point(366, 214);
+            this.textImagen.Name = "textImagen";
+            this.textImagen.Size = new System.Drawing.Size(149, 22);
+            this.textImagen.TabIndex = 12;
+            this.textImagen.Leave += new System.EventHandler(this.textImagen_Leave);
+            // 
             // AltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1081, 580);
+            this.Controls.Add(this.textImagen);
+            this.Controls.Add(this.TxtImagen);
             this.Controls.Add(this.pictureBoxAlta);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
@@ -177,5 +198,7 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.PictureBox pictureBoxAlta;
+        private System.Windows.Forms.Label TxtImagen;
+        private System.Windows.Forms.TextBox textImagen;
     }
 }

@@ -1,4 +1,5 @@
-﻿using dominio;
+﻿using datos;
+using dominio;
 using negocio;
 using System;
 using System.Collections.Generic;
@@ -16,11 +17,13 @@ namespace ejemplo1
 {
     public partial class AltaArticulo : Form
     {
+        
         private List<Articulo> listaArticulo;
         private List<Imagen> listaImagen;
         private ImagenNegocio cargaImagenes = new ImagenNegocio();
         private Articulo articulo = null;
-        frmVentanaInicio ventanaInicio = new frmVentanaInicio();
+        private Imagen imagen = new Imagen();
+        
         public AltaArticulo()
         {
             InitializeComponent();
@@ -66,12 +69,15 @@ namespace ejemplo1
                 articulo.Codigo = textCodigo.Text;
                 articulo.Nombre = textNombre.Text;
                articulo.Descripcion = textDescripcion.Text;
+                imagen.Url = textImagen.Text;
+                imagen.IdArticulo = articulo.Id;
                 articulo.Precio = decimal.Parse(textPrecio.Text);
 
 
                 if (articulo.Id != 0)
                 {
                     articuloNegocio.modificar(articulo);
+                    
                     MessageBox.Show("Modificado exitosamente");
                     
 
@@ -80,9 +86,20 @@ namespace ejemplo1
                 {
 
 
+
+
                     articuloNegocio.agregarArticulo(articulo);
+
+                    int nuevoId = articuloNegocio.ultimoId();
+
+                    Imagen imagen = new Imagen();
+                    imagen.Url = textImagen.Text;
+                    imagen.IdArticulo = nuevoId;
+
+                    cargaImagenes.agregarImagen(imagen);
+
                     MessageBox.Show("Agregado exitosamente");
-                    
+
                 }
 
 
@@ -100,6 +117,7 @@ namespace ejemplo1
         {
 
             listaImagen = cargaImagenes.listar();
+
             
 
             if (articulo!=null)
@@ -141,6 +159,24 @@ namespace ejemplo1
                 }
 
             }
+        }
+
+
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pictureBoxAlta.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                pictureBoxAlta.Load("https://mrchava.es/wp-content/uploads/2021/09/placeholder.png");
+            }
+        }
+
+        private void textImagen_Leave(object sender, EventArgs e)
+        {
+            cargarImagen(textImagen.Text);
         }
     }
 }

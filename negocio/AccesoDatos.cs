@@ -74,7 +74,7 @@ namespace datos
                 lector.Close();
             conexion.Close();
         }
-
+        
 
     }
 }

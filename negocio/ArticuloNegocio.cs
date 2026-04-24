@@ -79,6 +79,8 @@ namespace negocio
                 data.setarParametro("@Precio", nuevo.Precio);
 
                 data.ejecutarAccion();
+
+                
             }
             catch (Exception ex)
             {
@@ -90,7 +92,10 @@ namespace negocio
             }
 
         }
-          public void modificar(Articulo art)
+
+
+        
+        public void modificar(Articulo art)
         {
             AccesoDatos datos = new AccesoDatos();
             try
@@ -128,6 +133,30 @@ namespace negocio
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        public int ultimoId()
+        {
+            try
+            {
+                data.setQuery("SELECT MAX(Id) FROM Articulos");
+                data.lecturaDatos();
+
+                if (data.Lector.Read())
+                {
+                    return Convert.ToInt32(data.Lector[0]);
+                }
+
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                data.cerrarConexion();
             }
         }
 
