@@ -20,6 +20,7 @@ namespace ejemplo1
         private List<Imagen> listaImagen;
         private ImagenNegocio cargaImagenes = new ImagenNegocio();
         private Articulo articulo = null;
+        frmVentanaInicio ventanaInicio = new frmVentanaInicio();
         public AltaArticulo()
         {
             InitializeComponent();
@@ -53,18 +54,38 @@ namespace ejemplo1
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Articulo articulo = new Articulo();
+            //Articulo articulo = new Articulo();
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
 
             try
             {
+
+                if (articulo == null)
+                    articulo = new Articulo();
                 articulo.Codigo = textCodigo.Text;
                 articulo.Nombre = textNombre.Text;
                articulo.Descripcion = textDescripcion.Text;
                 articulo.Precio = decimal.Parse(textPrecio.Text);
 
-                articuloNegocio.agregarArticulo(articulo);
-                MessageBox.Show("Agregado exitosamente");
+
+                if (articulo.Id != 0)
+                {
+                    articuloNegocio.modificar(articulo);
+                    MessageBox.Show("Modificado exitosamente");
+                    
+
+                }
+                else
+                {
+
+
+                    articuloNegocio.agregarArticulo(articulo);
+                    MessageBox.Show("Agregado exitosamente");
+                    
+                }
+
+
+
                 Close();
 
             }

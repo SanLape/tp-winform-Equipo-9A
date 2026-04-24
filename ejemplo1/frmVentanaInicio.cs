@@ -16,6 +16,7 @@ namespace ejemplo1
         public frmVentanaInicio()
         {
             InitializeComponent();
+            
         }
 
 
@@ -40,7 +41,7 @@ namespace ejemplo1
         {
             cargar();
         }
-        private void cargar()
+        public void cargar()
         {
             ArticuloNegocio artNegocio = new ArticuloNegocio();
 
@@ -138,6 +139,7 @@ namespace ejemplo1
         {
             AltaArticulo alta = new AltaArticulo();
             alta.ShowDialog();
+            cargar();
         }
 
         private void btnModificar_Click(object sender, EventArgs e){
@@ -155,7 +157,9 @@ namespace ejemplo1
             try
             {
                 AltaArticulo modificar = new AltaArticulo(seleccionado);
+                
                 modificar.ShowDialog();
+                cargar();
             }
             catch (Exception ex)
             {

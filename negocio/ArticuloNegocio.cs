@@ -62,7 +62,8 @@ namespace negocio
             }
         }
 
-        public void agregarArticulo(Articulo nuevo) {
+        public void agregarArticulo(Articulo nuevo)
+        {
 
             string insert = "INSERT INTO Articulos (Codigo, Nombre, Descripcion, Precio) " +
                             "VALUES (@Codigo, @Nombre, @Descripcion, @Precio)";
@@ -88,17 +89,40 @@ namespace negocio
                 data.cerrarConexion();
             }
 
-
-
-
-
-
         }
-       
+          public void modificar(Articulo art)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                data.setQuery("update Articulos set Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, Precio = @Precio Where Id = @id");
+                data.setarParametro("@Codigo", art.Codigo);
+                data.setarParametro("@Nombre", art.Nombre);
+                data.setarParametro("@Descripcion", art.Descripcion);
+                data.setarParametro("@Precio", art.Precio);
 
-    }   
+                data.setarParametro("@id", art.Id);
+
+                data.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                data.cerrarConexion();
+            }
+        }
+
+
+
+
+    }
+       
+ }   
 
 
 
     
-}
+
