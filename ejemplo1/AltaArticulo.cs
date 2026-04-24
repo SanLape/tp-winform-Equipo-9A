@@ -30,6 +30,7 @@ namespace ejemplo1
         {
             InitializeComponent();
             this.articulo = articulo;
+           Text = "Modificar Articulo";
         }
 
         private void label1_Click(object sender, EventArgs e)

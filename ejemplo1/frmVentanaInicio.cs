@@ -25,15 +25,15 @@ namespace ejemplo1
 
 
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ArticuloNegocio lista = new ArticuloNegocio();
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    ArticuloNegocio lista = new ArticuloNegocio();
 
-            dgvArticulo.DataSource = lista.listar();
+        //    dgvArticulo.DataSource = lista.listar();
 
 
 
-        }
+        //}
 
 
 
@@ -167,10 +167,24 @@ namespace ejemplo1
             }
         }
 
-       
-
-        
-
-       
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            Articulo artseleccionado;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿Desea eliminar este articulo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    artseleccionado = dgvArticulo.CurrentRow.DataBoundItem as Articulo;
+                    articuloNegocio.eliminar(artseleccionado.Id);
+                    cargar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }
