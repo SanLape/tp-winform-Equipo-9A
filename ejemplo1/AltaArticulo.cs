@@ -17,13 +17,13 @@ namespace ejemplo1
 {
     public partial class AltaArticulo : Form
     {
-        
+
         private List<Articulo> listaArticulo;
         private List<Imagen> listaImagen;
         private ImagenNegocio cargaImagenes = new ImagenNegocio();
         private Articulo articulo = null;
         private Imagen imagen = new Imagen();
-        
+
         public AltaArticulo()
         {
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace ejemplo1
         {
             InitializeComponent();
             this.articulo = articulo;
-           Text = "Modificar Articulo";
+            Text = "Modificar Articulo";
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -68,18 +68,22 @@ namespace ejemplo1
                     articulo = new Articulo();
                 articulo.Codigo = textCodigo.Text;
                 articulo.Nombre = textNombre.Text;
-               articulo.Descripcion = textDescripcion.Text;
+                articulo.Descripcion = textDescripcion.Text;
                 imagen.Url = textImagen.Text;
                 imagen.IdArticulo = articulo.Id;
                 articulo.Precio = decimal.Parse(textPrecio.Text);
 
+                articulo.Marca = new Marca();
+                articulo.Marca = (Marca)cboMarca.SelectedItem;
+                articulo.Categoria = new Categoria();
+                articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
 
                 if (articulo.Id != 0)
                 {
                     articuloNegocio.modificar(articulo);
-                    
+
                     MessageBox.Show("Modificado exitosamente");
-                    
+
 
                 }
                 else
@@ -119,13 +123,13 @@ namespace ejemplo1
             cargarCombox();
             listaImagen = cargaImagenes.listar();
 
-            
 
-            if (articulo!=null)
+
+            if (articulo != null)
             {
-                
 
-              
+
+
 
                 try
                 {
@@ -134,29 +138,30 @@ namespace ejemplo1
                     textNombre.Text = articulo.Nombre;
                     textDescripcion.Text = articulo.Descripcion;
                     textPrecio.Text = articulo.Precio.ToString();
-                  
+
+
 
                     var imagen = listaImagen.FirstOrDefault(x => x.IdArticulo == articulo.Id);
                     if (imagen != null)
-                        
-
-                   
 
 
-                    if (imagen != null && !string.IsNullOrEmpty(imagen.Url))
-                    {
-                        pictureBoxAlta.Load(imagen.Url);
-                    }
-                    else
-                    {
-                        pictureBoxAlta.Load("https://mrchava.es/wp-content/uploads/2021/09/placeholder.png");
-                    }
+
+
+
+                        if (imagen != null && !string.IsNullOrEmpty(imagen.Url))
+                        {
+                            pictureBoxAlta.Load(imagen.Url);
+                        }
+                        else
+                        {
+                            pictureBoxAlta.Load("https://mrchava.es/wp-content/uploads/2021/09/placeholder.png");
+                        }
                 }
                 catch
                 {
                     // Si falla la URL (internet, link roto, etc.)
                     pictureBoxAlta.Load("https://mrchava.es/wp-content/uploads/2021/09/placeholder.png");
-                    
+
                 }
 
             }
@@ -174,7 +179,8 @@ namespace ejemplo1
                 cboMarca.DisplayMember = "Nombre";
                 cboCategoria.DataSource = categoriaNegocio.listar();
                 cboCategoria.ValueMember = "id";
-                cboCategoria.DisplayMember = "Nombre"; 
+                cboCategoria.DisplayMember = "Nombre";
+
             }
             catch (Exception ex)
             {

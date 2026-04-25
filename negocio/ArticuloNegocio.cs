@@ -72,8 +72,8 @@ namespace negocio
         public void agregarArticulo(Articulo nuevo)
         {
 
-            string insert = "INSERT INTO Articulos (Codigo, Nombre, Descripcion, Precio) " +
-                            "VALUES (@Codigo, @Nombre, @Descripcion, @Precio)";
+            string insert = "INSERT INTO Articulos (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria ) " +
+                            "VALUES (@Codigo, @Nombre, @Descripcion, @Precio, @IdMarca, @IdCategoria)";
 
 
             try
@@ -84,6 +84,9 @@ namespace negocio
                 data.setarParametro("@Nombre", nuevo.Nombre);
                 data.setarParametro("@Descripcion", nuevo.Descripcion);
                 data.setarParametro("@Precio", nuevo.Precio);
+
+                data.setarParametro("@IdMarca", nuevo.Marca.Id);
+                data.setarParametro("@IdCategoria", nuevo.Categoria.Id);
 
                 data.ejecutarAccion();
 
@@ -107,11 +110,14 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                data.setQuery("update Articulos set Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, Precio = @Precio Where Id = @id");
+                data.setQuery("update Articulos set Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, Precio = @Precio, IdMarca=@IdMarca, IdCategoria=@IdCategoria Where Id = @id");
                 data.setarParametro("@Codigo", art.Codigo);
                 data.setarParametro("@Nombre", art.Nombre);
                 data.setarParametro("@Descripcion", art.Descripcion);
                 data.setarParametro("@Precio", art.Precio);
+
+                data.setarParametro("@IdMarca", art.Marca.Id);
+                data.setarParametro("@IdCategoria", art.Categoria.Id);
 
                 data.setarParametro("@id", art.Id);
 
