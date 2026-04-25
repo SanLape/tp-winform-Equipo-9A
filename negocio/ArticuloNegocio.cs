@@ -18,29 +18,36 @@ namespace negocio
 
         public List<Articulo> listar()
         {
-
-           
-
+            string select = "SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Id marcID, M.Descripcion marcDesc, C.Id catID, C.Descripcion catDesc, Precio, I.Id imgID, I.ImagenUrl imgUrl";
+            string from = " FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id LEFT JOIN IMAGENES AS I ON I.IdArticulo = A.Id";
+            string consulta = select + from;
 
             try
             {
-                data.setQuery("select * from ARTICULOS");
+                data.setQuery(consulta);
                 data.lecturaDatos();
 
                 while (data.Lector.Read())
                 {
                     Articulo aux = new Articulo();
+
                     aux.Id = (int)data.Lector["Id"];
                     aux.Codigo = (string)data.Lector["Codigo"];
                     aux.Nombre = (string)data.Lector["Nombre"];
                     aux.Descripcion = (string)data.Lector["Descripcion"];
                     aux.Precio = (decimal)data.Lector["Precio"];
-                    
-                    
 
+                    aux.Marca = new Marca
+                    {
+                        Id = (int)data.Lector["marcID"],
+                        Nombre = (string)data.Lector["marcDesc"]
+                    };
 
-
-
+                    aux.Categoria = new Categoria
+                    {
+                        Id = (int)data.Lector["catID"],
+                        Nombre = (string)data.Lector["catDesc"]
+                    };
 
                     lista.Add(aux);
 
@@ -80,7 +87,7 @@ namespace negocio
 
                 data.ejecutarAccion();
 
-                
+
             }
             catch (Exception ex)
             {
@@ -94,7 +101,7 @@ namespace negocio
         }
 
 
-        
+
         public void modificar(Articulo art)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -162,10 +169,10 @@ namespace negocio
 
 
     }
-       
- }   
+
+}
 
 
 
-    
+
 
