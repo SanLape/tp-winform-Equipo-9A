@@ -152,9 +152,9 @@ namespace ejemplo1
             else
             {
                 CategoriaNegocio catNegocio = new CategoriaNegocio();
-                Categoria aux = new Categoria();
+                Categoria aux = (Categoria)dgwCategoriaMarca.CurrentRow.DataBoundItem;
                 aux.Nombre = txtNombre.Text;
-                //catNegocio.modificar(aux);
+                catNegocio.modificar(aux);
 
                 MessageBox.Show(" CATEGORIA MODIFICADA ");
             }

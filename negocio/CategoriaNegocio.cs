@@ -79,5 +79,26 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+        public void modificar(Categoria categoriaModificar)
+        {
+            string consutla = "update CATEGORIAS set Descripcion = @DESCRIPCION where Id = @ID";
+            try
+            {
+                datos.setQuery(consutla);
+                datos.setarParametro("@ID", categoriaModificar.Id);
+                datos.setarParametro("@DESCRIPCION", categoriaModificar.Nombre);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception EX)
+            {
+
+                throw EX;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }
