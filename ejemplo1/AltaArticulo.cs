@@ -116,6 +116,7 @@ namespace ejemplo1
         private void AltaArticulo_Load(object sender, EventArgs e)
         {
 
+            cargarCombox();
             listaImagen = cargaImagenes.listar();
 
             
@@ -161,7 +162,26 @@ namespace ejemplo1
             }
         }
 
+        private void cargarCombox()
+        {
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
 
+            try
+            {
+                cboMarca.DataSource = marcaNegocio.listar();
+                cboMarca.ValueMember = "id";
+                cboMarca.DisplayMember = "Nombre";
+                cboCategoria.DataSource = categoriaNegocio.listar();
+                cboCategoria.ValueMember = "id";
+                cboCategoria.DisplayMember = "Nombre"; 
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
         private void cargarImagen(string imagen)
         {
             try
