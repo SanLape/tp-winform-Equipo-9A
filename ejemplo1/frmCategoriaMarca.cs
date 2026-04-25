@@ -30,6 +30,7 @@ namespace ejemplo1
 
         private void cargar()
         {
+            txtNombre.Text = string.Empty;
 
             if (marca)
             {
@@ -115,7 +116,7 @@ namespace ejemplo1
                     Marca select = (Marca)dgwCategoriaMarca.CurrentRow.DataBoundItem;
 
                     marcaNegocio.eliminar(select.Id);
-                    
+
                     MessageBox.Show(" MARCA ELIMINADA ");
 
                 }
@@ -139,26 +140,43 @@ namespace ejemplo1
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (marca)
+            if (!string.IsNullOrEmpty(txtNombre.Text)) // CONTROLA QUE EL TXTBOX TENGA ALGO ESCRITO
             {
-                MarcaNegocio marNegocio = new MarcaNegocio();
-                Marca aux = (Marca)dgwCategoriaMarca.CurrentRow.DataBoundItem;
-                aux.Nombre = txtNombre.Text;
-                marNegocio.modificar(aux);
+                DialogResult respuesta = MessageBox.Show("¿queire modificar?", "CONFIRMAR", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
 
-                MessageBox.Show(" MARCA MODIFICADA ");
+                    if (marca)
+                    {
+                        MarcaNegocio marNegocio = new MarcaNegocio();
+                        Marca aux = (Marca)dgwCategoriaMarca.CurrentRow.DataBoundItem;
+                        aux.Nombre = txtNombre.Text;
+                        marNegocio.modificar(aux);
 
+                        MessageBox.Show(" MARCA MODIFICADA ");
+
+                    }
+                    else
+                    {
+                        CategoriaNegocio catNegocio = new CategoriaNegocio();
+                        Categoria aux = (Categoria)dgwCategoriaMarca.CurrentRow.DataBoundItem;
+                        aux.Nombre = txtNombre.Text;
+                        catNegocio.modificar(aux);
+
+                        MessageBox.Show(" CATEGORIA MODIFICADA ");
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show(" CANCELADO ");
+                }
+                cargar();
             }
             else
             {
-                CategoriaNegocio catNegocio = new CategoriaNegocio();
-                Categoria aux = (Categoria)dgwCategoriaMarca.CurrentRow.DataBoundItem;
-                aux.Nombre = txtNombre.Text;
-                catNegocio.modificar(aux);
-
-                MessageBox.Show(" CATEGORIA MODIFICADA ");
+                MessageBox.Show(" ESCRIBA ELNOMBRE ");
             }
-            cargar();
         }
     }
 }
