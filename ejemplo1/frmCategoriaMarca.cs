@@ -136,5 +136,29 @@ namespace ejemplo1
                 throw ex;
             }
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (marca)
+            {
+                MarcaNegocio marNegocio = new MarcaNegocio();
+                Marca aux = (Marca)dgwCategoriaMarca.CurrentRow.DataBoundItem;
+                aux.Nombre = txtNombre.Text;
+                marNegocio.modificar(aux);
+
+                MessageBox.Show(" MARCA MODIFICADA ");
+
+            }
+            else
+            {
+                CategoriaNegocio catNegocio = new CategoriaNegocio();
+                Categoria aux = new Categoria();
+                aux.Nombre = txtNombre.Text;
+                //catNegocio.modificar(aux);
+
+                MessageBox.Show(" CATEGORIA MODIFICADA ");
+            }
+            cargar();
+        }
     }
 }

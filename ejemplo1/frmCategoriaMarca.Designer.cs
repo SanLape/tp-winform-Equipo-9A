@@ -33,6 +33,7 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwCategoriaMarca)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,14 +45,14 @@
             this.dgwCategoriaMarca.MultiSelect = false;
             this.dgwCategoriaMarca.Name = "dgwCategoriaMarca";
             this.dgwCategoriaMarca.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwCategoriaMarca.Size = new System.Drawing.Size(366, 240);
+            this.dgwCategoriaMarca.Size = new System.Drawing.Size(339, 240);
             this.dgwCategoriaMarca.TabIndex = 0;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(122, 258);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(256, 20);
+            this.txtNombre.Size = new System.Drawing.Size(229, 20);
             this.txtNombre.TabIndex = 1;
             // 
             // lblNombre
@@ -68,7 +69,7 @@
             // 
             this.btnAgregar.Location = new System.Drawing.Point(12, 284);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(180, 51);
+            this.btnAgregar.Size = new System.Drawing.Size(109, 51);
             this.btnAgregar.TabIndex = 3;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -76,19 +77,30 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(198, 284);
+            this.btnEliminar.Location = new System.Drawing.Point(127, 284);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(180, 51);
+            this.btnEliminar.Size = new System.Drawing.Size(109, 51);
             this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(242, 284);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(109, 51);
+            this.btnModificar.TabIndex = 5;
+            this.btnModificar.Text = "MODIFICAR";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
             // frmCategoriaMarca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(392, 344);
+            this.ClientSize = new System.Drawing.Size(368, 342);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.lblNombre);
@@ -113,5 +125,6 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnModificar;
     }
 }
