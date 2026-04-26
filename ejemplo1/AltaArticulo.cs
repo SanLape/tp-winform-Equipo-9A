@@ -204,5 +204,19 @@ namespace ejemplo1
         {
             cargarImagen(textImagen.Text);
         }
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            if (imagenes == null || imagenes.Count <= 1)
+                return; // no hay nada para navegar
+
+            indexImagen++;
+
+            if (indexImagen >= imagenes.Count)
+                indexImagen = 0;
+
+            pictureBoxAlta.Load(imagenes[indexImagen].Url);
+            textImagen.Text = imagenes[indexImagen].Url;
+        }
     }
 }
