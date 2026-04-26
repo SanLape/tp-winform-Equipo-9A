@@ -139,7 +139,8 @@ namespace ejemplo1
                     textDescripcion.Text = articulo.Descripcion;
                     textPrecio.Text = articulo.Precio.ToString();
 
-
+                    cboMarca.SelectedValue = articulo.Marca.Id;
+                    cboCategoria.SelectedValue = articulo.Categoria.Id;
 
                     var imagen = listaImagen.FirstOrDefault(x => x.IdArticulo == articulo.Id);
                     if (imagen != null)
