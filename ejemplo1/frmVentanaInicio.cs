@@ -212,10 +212,16 @@ namespace ejemplo1
 
         private void btnBuscaar_Click(object sender, EventArgs e)
         {
+
+
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
             List<Articulo> listaFiltrada;
             string filtro = txtBuscar.Text;
 
-            if (filtro != "")
+            if (filtro.Length >= 3)
             {
                 listaFiltrada = listaArticulo.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Codigo.ToUpper().Contains(filtro.ToUpper()));
             }
@@ -228,7 +234,6 @@ namespace ejemplo1
             dgvArticulo.DataSource = listaFiltrada;
 
             ocultarColumnas();
-
         }
     }
 }
