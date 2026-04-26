@@ -137,12 +137,14 @@ namespace ejemplo1
 
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
+            
             AltaArticulo alta = new AltaArticulo();
             alta.ShowDialog();
             cargar();
         }
 
         private void btnModificar_Click(object sender, EventArgs e){
+           
 
             if (dgvArticulo.CurrentRow == null)
             {
@@ -151,8 +153,13 @@ namespace ejemplo1
             }
 
             Articulo seleccionado = dgvArticulo.CurrentRow.DataBoundItem as Articulo;
+            var imagen = listaImagen.FirstOrDefault(x => x.IdArticulo == seleccionado.Id);
 
-          
+            
+
+            
+
+
 
             try
             {

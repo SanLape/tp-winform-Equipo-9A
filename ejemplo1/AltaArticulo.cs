@@ -36,6 +36,8 @@ namespace ejemplo1
             Text = "Modificar Articulo";
         }
 
+       
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -81,6 +83,8 @@ namespace ejemplo1
                 if (articulo.Id != 0)
                 {
                     articuloNegocio.modificar(articulo);
+                   
+
 
                     MessageBox.Show("Modificado exitosamente");
 
@@ -151,6 +155,7 @@ namespace ejemplo1
                         if (imagen != null && !string.IsNullOrEmpty(imagen.Url))
                         {
                             pictureBoxAlta.Load(imagen.Url);
+                            textImagen.Text = imagen.Url;
                         }
                         else
                         {
