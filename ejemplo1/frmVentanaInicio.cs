@@ -12,15 +12,15 @@ namespace ejemplo1
         private List<Articulo> listaArticulo;
         private List<Imagen> listaImagen;
 
-      
+
         public frmVentanaInicio()
         {
             InitializeComponent();
-            
+
         }
 
 
-    
+
 
 
 
@@ -93,7 +93,7 @@ namespace ejemplo1
         }
 
 
-       
+
         private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
         {
 
@@ -131,19 +131,20 @@ namespace ejemplo1
 
 
 
-            
+
 
         }
 
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
-            
+
             AltaArticulo alta = new AltaArticulo();
             alta.ShowDialog();
             cargar();
         }
 
-        private void btnModificar_Click(object sender, EventArgs e){
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
 
 
             if (dgvArticulo.CurrentRow == null)
@@ -210,11 +211,6 @@ namespace ejemplo1
 
         }
 
-        private void btnBuscaar_Click(object sender, EventArgs e)
-        {
-
-
-        }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
@@ -234,6 +230,52 @@ namespace ejemplo1
             dgvArticulo.DataSource = listaFiltrada;
 
             ocultarColumnas();
+        }
+
+        private void btnFiltro_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                string campo = cboCampo.SelectedItem.ToString();
+                string criterio = cboCriterio.SelectedItem.ToString();
+                string filtro = txtFiltroAvanzado.Text;
+
+                dgvArticulo.DataSource = negocio.filtrar(campo, criterio, filtro);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string opcion = cboCampo.SelectedItem.ToString();
+            if (opcion == "Código" || opcion == "Nombre" || opcion == "Descripción")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Comienza con");
+                cboCriterio.Items.Add("Termina con");
+                cboCriterio.Items.Add("Contiene");
+            }
+            else if (opcion == "Precio")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Mayor a");
+                cboCriterio.Items.Add("Menor a");
+                cboCriterio.Items.Add("Igual a");
+            }
+
+            else if (opcion == "Marca" || opcion == "Categoría")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Comienza con");
+                cboCriterio.Items.Add("Termina con");
+                cboCriterio.Items.Add("Contiene");
+            }
         }
     }
 }
