@@ -93,7 +93,7 @@
             // textCodigo
             // 
             this.textCodigo.Location = new System.Drawing.Point(274, 64);
-            this.textCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textCodigo.Margin = new System.Windows.Forms.Padding(2);
             this.textCodigo.Name = "textCodigo";
             this.textCodigo.Size = new System.Drawing.Size(113, 20);
             this.textCodigo.TabIndex = 4;
@@ -101,7 +101,7 @@
             // textNombre
             // 
             this.textNombre.Location = new System.Drawing.Point(274, 103);
-            this.textNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textNombre.Margin = new System.Windows.Forms.Padding(2);
             this.textNombre.Name = "textNombre";
             this.textNombre.Size = new System.Drawing.Size(113, 20);
             this.textNombre.TabIndex = 5;
@@ -109,7 +109,7 @@
             // textDescripcion
             // 
             this.textDescripcion.Location = new System.Drawing.Point(274, 143);
-            this.textDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.textDescripcion.Name = "textDescripcion";
             this.textDescripcion.Size = new System.Drawing.Size(113, 20);
             this.textDescripcion.TabIndex = 6;
@@ -118,7 +118,7 @@
             // textPrecio
             // 
             this.textPrecio.Location = new System.Drawing.Point(274, 210);
-            this.textPrecio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textPrecio.Margin = new System.Windows.Forms.Padding(2);
             this.textPrecio.Name = "textPrecio";
             this.textPrecio.Size = new System.Drawing.Size(113, 20);
             this.textPrecio.TabIndex = 7;
@@ -126,7 +126,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(196, 297);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(92, 44);
             this.btnAceptar.TabIndex = 8;
@@ -137,7 +137,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(357, 297);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(102, 44);
             this.btnCancelar.TabIndex = 9;
@@ -149,7 +149,7 @@
             // 
             this.pictureBoxAlta.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBoxAlta.Location = new System.Drawing.Point(526, 35);
-            this.pictureBoxAlta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxAlta.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxAlta.Name = "pictureBoxAlta";
             this.pictureBoxAlta.Size = new System.Drawing.Size(233, 258);
             this.pictureBoxAlta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -169,7 +169,7 @@
             // textImagen
             // 
             this.textImagen.Location = new System.Drawing.Point(274, 174);
-            this.textImagen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textImagen.Margin = new System.Windows.Forms.Padding(2);
             this.textImagen.Name = "textImagen";
             this.textImagen.Size = new System.Drawing.Size(113, 20);
             this.textImagen.TabIndex = 12;
@@ -195,6 +195,7 @@
             // 
             // cboCategoria
             // 
+            this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategoria.FormattingEnabled = true;
             this.cboCategoria.Location = new System.Drawing.Point(274, 239);
             this.cboCategoria.Name = "cboCategoria";
@@ -203,6 +204,7 @@
             // 
             // cboMarca
             // 
+            this.cboMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMarca.FormattingEnabled = true;
             this.cboMarca.Location = new System.Drawing.Point(273, 268);
             this.cboMarca.Name = "cboMarca";
@@ -231,7 +233,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AltaArticulo";
             this.Text = "AltaArticulo";
             this.Load += new System.EventHandler(this.AltaArticulo_Load);
