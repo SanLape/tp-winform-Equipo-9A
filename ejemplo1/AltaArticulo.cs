@@ -23,6 +23,8 @@ namespace ejemplo1
         private ImagenNegocio cargaImagenes = new ImagenNegocio();
         private Articulo articulo = null;
         private Imagen imagen = new Imagen();
+        private int indexImagen = 0;
+        private List<Imagen> imagenes;
 
         public AltaArticulo()
         {
@@ -127,17 +129,10 @@ namespace ejemplo1
             cargarCombox();
             listaImagen = cargaImagenes.listar();
 
-
-
             if (articulo != null)
             {
-
-
-
-
                 try
                 {
-
                     textCodigo.Text = articulo.Codigo;
                     textNombre.Text = articulo.Nombre;
                     textDescripcion.Text = articulo.Descripcion;
@@ -146,28 +141,27 @@ namespace ejemplo1
                     cboMarca.SelectedValue = articulo.Marca.Id;
                     cboCategoria.SelectedValue = articulo.Categoria.Id;
 
-                    var imagen = listaImagen.FirstOrDefault(x => x.IdArticulo == articulo.Id);
-                    if (imagen != null)
+                    // 
+                    imagenes = listaImagen
+                        .Where(x => x.IdArticulo == articulo.Id)
+                        .ToList();
 
+                    indexImagen = 0;
 
-
-
-
-                        if (imagen != null && !string.IsNullOrEmpty(imagen.Url))
-                        {
-                            pictureBoxAlta.Load(imagen.Url);
-                            textImagen.Text = imagen.Url;
-                        }
-                        else
-                        {
-                            pictureBoxAlta.Load("https://mrchava.es/wp-content/uploads/2021/09/placeholder.png");
-                        }
+                    
+                    if (imagenes.Count > 0)
+                    {
+                        pictureBoxAlta.Load(imagenes[indexImagen].Url);
+                        textImagen.Text = imagenes[indexImagen].Url;
+                    }
+                    else
+                    {
+                        pictureBoxAlta.Load("https://mrchava.es/wp-content/uploads/2021/09/placeholder.png");
+                    }
                 }
                 catch
                 {
-                    // Si falla la URL (internet, link roto, etc.)
                     pictureBoxAlta.Load("https://mrchava.es/wp-content/uploads/2021/09/placeholder.png");
-
                 }
 
             }

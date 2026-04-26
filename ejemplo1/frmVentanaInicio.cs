@@ -144,7 +144,7 @@ namespace ejemplo1
         }
 
         private void btnModificar_Click(object sender, EventArgs e){
-           
+
 
             if (dgvArticulo.CurrentRow == null)
             {
@@ -153,18 +153,16 @@ namespace ejemplo1
             }
 
             Articulo seleccionado = dgvArticulo.CurrentRow.DataBoundItem as Articulo;
-            var imagen = listaImagen.FirstOrDefault(x => x.IdArticulo == seleccionado.Id);
 
-            
-
-            
-
-
+            if (seleccionado == null)
+            {
+                MessageBox.Show("Error al seleccionar el artículo");
+                return;
+            }
 
             try
             {
                 AltaArticulo modificar = new AltaArticulo(seleccionado);
-                
                 modificar.ShowDialog();
                 cargar();
             }
@@ -192,6 +190,24 @@ namespace ejemplo1
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void btnAgregarImagen_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado = dgvArticulo.CurrentRow.DataBoundItem as Articulo;
+
+            if (seleccionado == null)
+            {
+                MessageBox.Show("Seleccione un artículo");
+                return;
+            }
+
+            AltaImagen altaNuevaImagen = new AltaImagen(seleccionado.Id);
+            altaNuevaImagen.ShowDialog();
+
+            cargar();
+
+
         }
     }
 }
